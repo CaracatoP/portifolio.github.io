@@ -15,4 +15,4 @@ document.addEventListener("DOMContentLoaded", function () {
 
     revealOnScroll();
     window.addEventListener("scroll", revealOnScroll);
-});
+    });
