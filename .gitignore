@@ -1,2 +1,6 @@
 .claude/
 .taste-skill/
+.impeccable/
+node_modules/
+dist/
+*.local

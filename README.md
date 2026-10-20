@@ -1,16 +1,26 @@
 # portifolio.github.io
 
-Portfólio de João Gabriel Caracato. HTML, CSS e JavaScript puros, sem build: o GitHub Pages serve a raiz da branch `main`.
+Portfólio de João Gabriel Caracato. React 19, TypeScript, Vite, Tailwind CSS 4 e Motion; componentes no padrão shadcn/ui (cva + tailwind-merge) e efeitos inspirados em Magic UI e Aceternity.
 
-- `index.html`: página única (abertura, sobre, projetos, Minecraft, automação, rede, contato).
-- `css/style.css`: tokens de cor e tipografia, layout e estados.
-- `js/main.js`: mergulho no "O" da abertura, íris entre seções, preview dos projetos, fluxo do n8n, medição da conexão e o bloco minerável.
-- `portifolio.html` e `contato.html` redirecionam para as âncoras da página nova.
-
-Rodar localmente:
+## Rodar
 
 ```bash
-python -m http.server 5500
+npm install
+npm run dev
 ```
 
-As animações respeitam `prefers-reduced-motion`; quando o sistema pede menos movimento aparece um interruptor "Animações" na barra.
+Abre em `http://localhost:5173/portifolio.github.io/`. `npm run build` gera `dist/`.
+
+## Deploy
+
+`.github/workflows/deploy.yml` builda e publica no GitHub Pages a cada push na `main`. O Pages do repositório precisa estar com a fonte **GitHub Actions** (Settings → Pages → Build and deployment).
+
+## Estrutura
+
+- `src/data.ts`: todo o conteúdo (projetos, stack, processo, contato).
+- `src/components/`: seções da página; `ui/` tem os primitivos, `mockups/` as interfaces ilustrativas dos produtos (dados fictícios).
+- `public/`: avatar, favicon e os redirecionamentos de `portifolio.html` e `contato.html`.
+
+## Movimento
+
+As animações respeitam `prefers-reduced-motion`. Para ver tudo mesmo com o sistema pedindo menos movimento, abra com `?motion=on`.
