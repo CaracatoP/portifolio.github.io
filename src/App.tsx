@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { Nav } from '@/components/nav'
 import { Hero } from '@/components/hero'
 import { Projects } from '@/components/projects'
@@ -6,6 +7,12 @@ import { Process } from '@/components/process'
 import { Contact } from '@/components/contact'
 
 export default function App() {
+  // O navegador tenta rolar até o #hash antes do React montar as seções; refaz depois da montagem.
+  useEffect(() => {
+    const id = decodeURIComponent(window.location.hash.slice(1))
+    if (id) document.getElementById(id)?.scrollIntoView({ behavior: 'instant' })
+  }, [])
+
   return (
     <>
       <a href="#projetos" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-full focus:bg-fg focus:px-4 focus:py-2 focus:text-bg">
